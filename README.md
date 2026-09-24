@@ -37,11 +37,36 @@ A chuva é uma das variáveis meteorológicas mais difíceis de prever no mundo.
 
 ---
 
-## 🔬 Abordagem Técnica (Para Computação & Data Science)
+## 🔬 Abordagem Técnica e Arquitetural
 
-Em vez de tratar o clima como tabelas isoladas, formulamos o problema como uma **sequência de vídeo/imagens spatiotemporais**. Cada mês é representado por uma grade geográfica de coordenadas ($\text{Latitude} \times \text{Longitude}$) contendo 9 canais físicos (camadas).
+Em vez de olhar para o clima como uma tabela estática de números (onde a relação de vizinhança entre as cidades se perde), **modelamos o problema como se o clima fosse um "vídeo" em movimento**. 
 
-Usamos uma arquitetura baseada em **ConvLSTM2D**, que combina a capacidade das **Convoluções (CNNs)** de extrair padrões espaciais do mapa com a capacidade de memória temporal das **LSTMs (RNNs)**.
+### 1. A Analogia dos "Quadros de Vídeo" Climáticos
+Cada mês da América do Sul é tratado como uma moldura (*frame*) de imagem de alta resolução geográfica (composta por uma grade de coordenadas de **Latitude $\times$ Longitude**). 
+
+No entanto, em vez de uma imagem comum (que possui apenas 3 canais de cor: Vermelho, Verde e Azul), cada pixel da nossa grade possui **9 camadas físicas sobrepostas** no mesmo ponto do espaço:
+* 🌤️ **3 Camadas de Superfície:** Cobertura de nuvens, pressão à superfície e chuva do mês atual ($tp$).
+* 🌡️ **2 Camadas de Temperatura:** Temperatura a 2 metros do solo e temperatura em altitude (850 hPa).
+* 💧 **2 Camadas de Umidade:** Umidade relativa e umidade específica em altitude.
+* 💨 **2 Camadas de Vento:** Componentes de vento horizontal ($u$) e vertical ($v$).
+
+---
+
+### 2. Por que usar ConvLSTM2D? (Espaço + Tempo)
+Modelos tradicionais de rede neural enfrentam duas limitações no clima:
+1. **Redes Convolucionais (CNNs):** Enxergam padrões no espaço (ex: percebem a forma de uma massa de ar frio no mapa), mas **não têm memória** do que aconteceu no mês anterior.
+2. **Redes Recorrentes (LSTMs):** Guardam memória temporal (ex: sabem a tendência dos últimos meses), mas **não entendem o mapa** como uma grade geográfica conectada.
+
+A camada **ConvLSTM2D** resolve isso ao unir as duas abordagens no mesmo neurônio: ela aplica filtros de convolução espacial *dentro* dos portões de memória da LSTM. Dessa forma, o modelo consegue aprender simultaneamente:
+* **Padrões Espaciais:** Como a Cordilheira dos Andes ou a Bacia Amazônica bloqueiam e direcionam a umidade nas regiões vizinhas.
+* **Dinâmica Temporal:** Como esses sistemas de pressão e temperatura evoluem e se deslocam mês a mês.
+
+---
+
+### 3. Mecanismo de Entrada e Saída
+* **Entrada no Tensor ($[B, T, \text{Lat}, \text{Lon}, C]$):** O modelo recebe um lote ($B$) contendo a janela de tempo ($T=1$), a dimensão da grade geográfica ($\text{Lat} \times \text{Lon}$) e as $C=9$ variáveis físicas atreladas a cada ponto do mapa.
+* **Processamento Convolucional:** A camada `ConvLSTM2D` processa esse mapa mantendo a resolução espacial intacta (`padding="same"`).
+* **Projeção Final:** Uma camada `Conv2D(1, kernel_size=1)` comprime as representações ocultas para apenas **1 mapa de saída**, que representa a previsão exata de chuva em $\text{mm/dia}$ para o mês seguinte ($M+1$)..
 
 ---
 
