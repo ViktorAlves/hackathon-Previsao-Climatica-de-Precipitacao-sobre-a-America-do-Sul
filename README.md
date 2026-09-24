@@ -19,8 +19,11 @@
 
 Este projeto foi desenvolvido por membros da **MackIA** (Liga Acadêmica de Inteligência Artificial da Universidade Presbiteriana Mackenzie):
 
-* 👤 **[![LinkedIn](https://img.shields.io/badge/-LinkedIn_Ana_Giese-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ana-g-548419230)**
-* 👤 **[Nome do Integrante 2]**
+* 👤 **Bruno Antico Galin**
+* [![LinkedIn](https://img.shields.io/badge/-LinkedIn_Bruno-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ana-g-548419230)
+* 
+* 👤 **Lucas Pires de Camargo Sarai**
+* [![LinkedIn](https://img.shields.io/badge/-LinkedIn_Lucas-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ana-g-548419230)
 * 👤 **[Nome do Integrante 3]**
 
 ---
