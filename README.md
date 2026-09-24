@@ -72,6 +72,37 @@ Para unir o melhor dos dois mundos, usamos a **ConvLSTM**: uma tecnologia de red
 3. **Geração do Resultado:** O modelo sintetiza todo esse conhecimento e desenha um **novo mapa de previsão**, indicando a média de chuva esperada (em mm/dia) para cada ponto da América do Sul no mês seguinte.
 ---
 
+## 🔒 Acesso aos Dados e Limitações
+
+Por se tratar de um desafio promovido no Kaggle em parceria com o **INPE (WORCAP)**, os arquivos brutos de dados possuem **acesso restrito aos participantes da competição**. 
+
+Devido aos limites de armazenamento do GitHub e aos termos de privacidade/propriedade dos dados, os arquivos brutos **não estão hospedados e nem podem ser distribuídos diretamente neste repositório**.
+
+---
+
+### 🗂️ Estrutura do Dataset Utilizado
+
+Para fins de documentação do projeto e reprodutibilidade do código, o pipeline foi construído para processar os seguintes arquivos no formato NetCDF (`.nc`) e CSV:
+
+#### Preditores Climáticos (Features de Treino)
+* ☁️ `treino_cloud_cover.nc` — Cobertura de nuvens[cite: 1]
+* 🌐 `treino_geopotential_850.nc` — Geopotencial a 850 hPa[cite: 1]
+* 💧 `treino_rel_hum_850.nc` — Umidade relativa a 850 hPa[cite: 1]
+* 💧 `treino_shum_850.nc` — Umidade específica a 850 hPa[cite: 1]
+* 🎈 `treino_surface_pressure.nc` — Pressão na superfície[cite: 1]
+* 🌡️ `treino_t2.nc` — Temperatura a 2 metros do solo[cite: 1]
+* 🌡️ `treino_temperature_850.nc` — Temperatura a 850 hPa[cite: 1]
+* 🌧️ `treino_tp.nc` — Precipitação acumulada do mês atual[cite: 1]
+* 💨 `treino_u_850.nc` — Componente $u$ do vento (leste-oeste) a 850 hPa[cite: 1]
+* 💨 `treino_v_850.nc` — Componente $v$ do vento (norte-sul) a 850 hPa[cite: 1]
+
+#### Alvo, Teste e Submissão
+* 🎯 `treino_tp_alvo.nc` — Precipitação média do mês seguinte ($\text{mm/dia}$)[cite: 1]
+* 🧪 `teste_features.nc` — Dataset de validação/teste da competição[cite: 1]
+* 📄 `sample_submission.csv` — Estrutura oficial de submissão do Kaggle[cite: 1]
+
+---
+
 ## 📂 Arquitetura do Repositório
 
 ```text
