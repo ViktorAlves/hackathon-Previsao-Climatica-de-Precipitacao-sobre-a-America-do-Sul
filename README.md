@@ -25,7 +25,7 @@ Este projeto foi desenvolvido por membros da **MackIA** (Liga Acadêmica de Inte
 * 👤 **Lucas Pires de Camargo Sarai**
   [![LinkedIn](https://img.shields.io/badge/-LinkedIn_Lucas-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ana-g-548419230)
 * 👤 **Victor Luiz de Sá Alves**
-  [![LinkedIn](https://img.shields.io/badge/-LinkedIn_Victor_Alves-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/victor-luiz-b39738222/)
+  [![LinkedIn](https://img.shields.io/badge/-LinkedIn_Victor-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/victor-luiz-b39738222/)
 
 ---
 
