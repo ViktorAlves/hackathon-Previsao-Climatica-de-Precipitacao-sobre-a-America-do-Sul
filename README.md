@@ -4,7 +4,7 @@
   <img src="https://img.shields.io/badge/Python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54" alt="Python" />
   <img src="https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white" alt="TensorFlow" />
   <img src="https://img.shields.io/badge/Kaggle-20BEFF?style=for-the-badge&logo=Kaggle&logoColor=white" alt="Kaggle" />
-  <img src="https://img.shields.io/badge/MackIA-Mackenzie-blue?style=for-the-badge" alt="MackIA" />
+  <img src="https://img.shields.io/badge/MackIA-Mackenzie-red?style=for-the-badge" alt="MackIA" />
 </p>
 
 ## 🏆 Resultados na Competição
