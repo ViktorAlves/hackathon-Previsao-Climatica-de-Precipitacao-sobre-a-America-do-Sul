@@ -19,7 +19,7 @@
 
 Este projeto foi desenvolvido por membros da **MackIA** (Liga Acadêmica de Inteligência Artificial da Universidade Presbiteriana Mackenzie):
 
-* 👤 **[Nome do Integrante 1]**
+* 👤 **[![LinkedIn](https://img.shields.io/badge/-LinkedIn_Ana_Giese-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ana-g-548419230)**
 * 👤 **[Nome do Integrante 2]**
 * 👤 **[Nome do Integrante 3]**
 
